@@ -49,7 +49,10 @@ class qa_topsearch_widget {
 		$outr = array();
 		for($i=0; $i <count($strings); $i++)
 		{
-			$outr[$strings[$i]]++;
+			if(isset($outr[$strings[$i]]))
+				$outr[$strings[$i]]++;
+			else
+				$outr[$strings[$i]] = 0;
 		}
 		arsort($outr);
 		$i = 0;

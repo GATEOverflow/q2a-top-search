@@ -31,6 +31,8 @@ color: white;
 				return 'Top Searched Content';
 			case 'qa-topsearch-plugin-count':
 				return '30';
+			case 'qa-topsearch-plugin-count':
+				return 'tagsearch';
 			default:
 				return null;
 
@@ -80,6 +82,12 @@ color: white;
 				'label' => 'Top Search Display Count',
 				'tags' => 'NAME="qa-topsearch-plugin-count"',
 				'value' => qa_opt('qa-topsearch-plugin-count'),
+				'type' => 'text',
+				);
+		$fields[] = array(
+				'label' => 'Search POST parameter (t for tagsearch)',
+				'tags' => 'NAME="qa-topsearch-plugin-param"',
+				'value' => qa_opt('qa-topsearch-plugin-param'),
 				'type' => 'text',
 				);
 
