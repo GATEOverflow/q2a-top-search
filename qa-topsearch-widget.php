@@ -55,7 +55,6 @@ class qa_topsearch_widget {
 				$outr[$strings[$i]] = 0;
 		}
 		arsort($outr);
-		$i = 0;
 		$cnt = qa_opt('qa-topsearch-plugin-count');
 		$alltags = array();
 		if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch') {
@@ -70,6 +69,7 @@ class qa_topsearch_widget {
 
 		else
 			$querypage = 'search';
+		$icount = 0;
 		foreach ($outr as $key => $value)
 		{
 			if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch')
@@ -87,8 +87,8 @@ class qa_topsearch_widget {
 			
 
 			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').$querypage.'?q='.urlencode($key).'">'.$key.'</a> </span>';
-			$i++;
-			if($i>$cnt)break;
+			$icount++;
+			if($icount>$cnt)break;
 
 		}
 		$out .='</div>';
