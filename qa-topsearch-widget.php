@@ -32,9 +32,9 @@ class qa_topsearch_widget {
 
 		$query = "SELECT params, event  FROM ^eventlog  WHERE 
 			event like 'search' 
-			and datetime > NOW() - INTERVAL 1000 day
+			and datetime > NOW() - INTERVAL 10 day
 			ORDER BY datetime DESC
-			LIMIT 300";
+			LIMIT 150";
 
 		$result = qa_db_query_sub($query);
 
@@ -53,13 +53,13 @@ class qa_topsearch_widget {
 		}
 		arsort($outr);
 		$i = 0;
-
+		$cnt = qa_opt('qa-topsearch-plugin-count');
 		foreach ($outr as $key => $value)
 		{
 
 			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt(site_url).'/search?q='.urlencode($key).'">'.$key.'</a> </span>';
 			$i++;
-			if($i>30)break;
+			if($i>$cnt)break;
 
 		}
 		$out .='</div>';

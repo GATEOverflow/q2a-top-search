@@ -1,13 +1,13 @@
 {
   "name": "Top Searches",
-  "uri": "https://github.com/arjunsuresh/tag-search",
+  "uri": "https://github.com/arjunsuresh/q2a-top-search",
   "description": "Adds a widget which displays the top searched keywords",
   "version": "1.0",
-  "date": "2016-07-07",
+  "date": "2016-07-08",
   "author": "Arjun Suresh",
   "author_uri": "http://armi.in/arjun",
   "license": "GPLv2",
-  "update_uri": "https://raw.githubusercontent.com/arjunsuresh/tag-search/master/metadata.json",
+  "update_uri": "https://raw.githubusercontent.com/arjunsuresh/q2a-top-search/master/metadata.json",
   "min_q2a": "1.5",
   "min_php": "5.1.6"
 }

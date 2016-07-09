@@ -15,21 +15,22 @@ class qa_topsearch_admin {
 				}
 
 				.qa-top-search-title {
-					font: bold;
+font: bold;
 				}
 
 				.qa-top-search-item {
 margin: 3px;
-background: #d07a15;
-font-size: x-small;
+	font-size: x-small;
 color: white;
-padding-right: 2px;
-padding-left: 2px;
+       padding-right: 2px;
+       padding-left: 2px;
 				}
 
 				';
 			case 'qa-topsearch-plugin-title':
 				return 'Top Searched Content';
+			case 'qa-topsearch-plugin-count':
+				return '30';
 			default:
 				return null;
 
@@ -43,8 +44,8 @@ padding-left: 2px;
 		$ok = null;
 		if (qa_clicked('topsearch_save_button')) {
 			foreach($_POST as $i => $v) {
-			
-			qa_opt($i,$v);
+
+				qa_opt($i,$v);
 			}
 
 			$ok = qa_lang('admin/options_saved');
@@ -73,6 +74,12 @@ padding-left: 2px;
 				'label' => 'Top Search Title',
 				'tags' => 'NAME="qa-topsearch-plugin-title"',
 				'value' => qa_opt('qa-topsearch-plugin-title'),
+				'type' => 'text',
+				);
+		$fields[] = array(
+				'label' => 'Top Search Display Count',
+				'tags' => 'NAME="qa-topsearch-plugin-count"',
+				'value' => qa_opt('qa-topsearch-plugin-count'),
 				'type' => 'text',
 				);
 
