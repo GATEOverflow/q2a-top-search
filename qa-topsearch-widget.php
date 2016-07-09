@@ -60,7 +60,7 @@ class qa_topsearch_widget {
 		foreach ($outr as $key => $value)
 		{
 
-			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').'/search?q='.urlencode($key).'">'.$key.'</a> </span>';
+			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').qa_opt('qa-topsearch-plugin-param').'?q='.urlencode($key).'">'.$key.'</a> </span>';
 			$i++;
 			if($i>$cnt)break;
 

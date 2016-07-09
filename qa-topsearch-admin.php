@@ -31,7 +31,7 @@ color: white;
 				return 'Top Searched Content';
 			case 'qa-topsearch-plugin-count':
 				return '30';
-			case 'qa-topsearch-plugin-count':
+			case 'qa-topsearch-plugin-param':
 				return 'tagsearch';
 			default:
 				return null;
