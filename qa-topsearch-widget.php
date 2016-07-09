@@ -57,12 +57,34 @@ class qa_topsearch_widget {
 		arsort($outr);
 		$i = 0;
 		$cnt = qa_opt('qa-topsearch-plugin-count');
-		if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch')
+		$alltags = array();
+		if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch') {
 			$querypage = 'tag-search-page';
+				$query = "select word from ^words where wordid in (select wordid from ^posttags)";
+				$result = qa_db_query_sub($query);
+				$alltagsr = qa_db_read_all_assoc($result);
+				$alltags[] = array();
+				for($i = 0; $i < count($alltagsr); $i++)
+					$alltags[] = $alltagsr[$i]['word'];
+			}
+
 		else
 			$querypage = 'search';
 		foreach ($outr as $key => $value)
 		{
+			if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch')
+			{
+				$tags = explode(" ", $key);
+				for($i = 0; $i < count($tags); $i++)
+				{
+					if(!in_array($tags[$i], $alltags)){
+						break;
+					}
+				}
+				if($i != count($tags))
+					continue;
+			}
+			
 
 			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').$querypage.'?q='.urlencode($key).'">'.$key.'</a> </span>';
 			$i++;
