@@ -31,7 +31,7 @@ class qa_topsearch_widget {
 		$out.='<div class="qa-top-search">';
 
 		$query = "SELECT params, event  FROM ^eventlog  WHERE 
-			event like 'search' 
+			event like '".qa_opt('qa-topsearch-plugin-param')."' 
 			and datetime >= NOW() - INTERVAL 10 day
 			ORDER BY datetime DESC
 			LIMIT 150";
@@ -57,10 +57,14 @@ class qa_topsearch_widget {
 		arsort($outr);
 		$i = 0;
 		$cnt = qa_opt('qa-topsearch-plugin-count');
+		if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch')
+			$querypage = 'tag-search-page';
+		else
+			$querypage = 'search';
 		foreach ($outr as $key => $value)
 		{
 
-			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').qa_opt('qa-topsearch-plugin-param').'?q='.urlencode($key).'">'.$key.'</a> </span>';
+			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').$querypage.'?q='.urlencode($key).'">'.$key.'</a> </span>';
 			$i++;
 			if($i>$cnt)break;
 

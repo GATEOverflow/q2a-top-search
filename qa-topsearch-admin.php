@@ -32,7 +32,7 @@ color: white;
 			case 'qa-topsearch-plugin-count':
 				return '30';
 			case 'qa-topsearch-plugin-param':
-				return 'tagsearch';
+				return 'search';
 			default:
 				return null;
 
@@ -85,7 +85,7 @@ color: white;
 				'type' => 'text',
 				);
 		$fields[] = array(
-				'label' => 'Search POST parameter (t for tagsearch)',
+				'label' => 'Search Type (search/tagsearch)',
 				'tags' => 'NAME="qa-topsearch-plugin-param"',
 				'value' => qa_opt('qa-topsearch-plugin-param'),
 				'type' => 'text',
