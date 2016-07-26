@@ -87,10 +87,11 @@ color: white;
 				'type' => 'text',
 				);
 		$fields[] = array(
-				'label' => 'Search Type (search/tagsearch)',
+				'label' => 'Search Type',
 				'tags' => 'NAME="qa-topsearch-plugin-param"',
 				'value' => qa_opt('qa-topsearch-plugin-param'),
-				'type' => 'text',
+				'type' => 'select',
+				'options' => array('search', 'tagsearch'),
 				);
 		$fields[] = array(
 				'label' => 'Change to Recent Searches',
