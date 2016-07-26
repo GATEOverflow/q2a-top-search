@@ -29,12 +29,12 @@ class qa_topsearch_widget {
 
 		$out='<div class="qa-top-search-title"><h2>'.qa_opt('qa-topsearch-plugin-title').'</h2></div>';
 		$out.='<div class="qa-top-search">';
-
+		$limit = 5 * qa_opt('qa-topsearch-plugin-count');
 		$query = "SELECT params, event  FROM ^eventlog  WHERE 
 			event like '".qa_opt('qa-topsearch-plugin-param')."' 
 			and datetime >= NOW() - INTERVAL 10 day
 			ORDER BY datetime DESC
-			LIMIT 150";
+			LIMIT ".$limit ;
 
 		$result = qa_db_query_sub($query);
 
@@ -54,18 +54,19 @@ class qa_topsearch_widget {
 			else
 				$outr[$strings[$i]] = 0;
 		}
+		if(qa_opt('qa-topsearch-plugin-recent') !== '1')
 		arsort($outr);
 		$cnt = qa_opt('qa-topsearch-plugin-count');
 		$alltags = array();
 		if(qa_opt('qa-topsearch-plugin-param') === 'tagsearch') {
 			$querypage = 'tag-search-page';
-				$query = "select word from ^words where wordid in (select wordid from ^posttags)";
-				$result = qa_db_query_sub($query);
-				$alltagsr = qa_db_read_all_assoc($result);
-				$alltags[] = array();
-				for($i = 0; $i < count($alltagsr); $i++)
-					$alltags[] = $alltagsr[$i]['word'];
-			}
+			$query = "select word from ^words where wordid in (select wordid from ^posttags)";
+			$result = qa_db_query_sub($query);
+			$alltagsr = qa_db_read_all_assoc($result);
+			$alltags[] = array();
+			for($i = 0; $i < count($alltagsr); $i++)
+				$alltags[] = $alltagsr[$i]['word'];
+		}
 
 		else
 			$querypage = 'search';
@@ -84,7 +85,7 @@ class qa_topsearch_widget {
 				if($i != count($tags))
 					continue;
 			}
-			
+
 
 			$out .='	<span class="qa-top-search-item"> <a href="'.qa_opt('site_url').$querypage.'?q='.urlencode($key).'">'.$key.'</a> </span>';
 			$icount++;

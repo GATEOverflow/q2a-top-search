@@ -33,6 +33,8 @@ color: white;
 				return '30';
 			case 'qa-topsearch-plugin-param':
 				return 'search';
+			case 'qa-topsearch-plugin-recent':
+				return '';
 			default:
 				return null;
 
@@ -89,6 +91,12 @@ color: white;
 				'tags' => 'NAME="qa-topsearch-plugin-param"',
 				'value' => qa_opt('qa-topsearch-plugin-param'),
 				'type' => 'text',
+				);
+		$fields[] = array(
+				'label' => 'Change to Recent Searches',
+				'tags' => 'NAME="qa-topsearch-plugin-recent"',
+				'value' => qa_opt('qa-topsearch-plugin-recent'),
+				'type' => 'checkbox',
 				);
 
 
