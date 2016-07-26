@@ -31,6 +31,8 @@ color: white;
 				return 'Top Searched Content';
 			case 'qa-topsearch-plugin-count':
 				return '30';
+			case 'qa-topsearch-plugin-interval-days':
+				return '10';
 			case 'qa-topsearch-plugin-param':
 				return 'search';
 			case 'qa-topsearch-plugin-recent':
@@ -87,11 +89,17 @@ color: white;
 				'type' => 'text',
 				);
 		$fields[] = array(
+				'label' => 'No. of Previous Days to Query searches',
+				'tags' => 'NAME="qa-topsearch-plugin-interval-days"',
+				'value' => qa_opt('qa-topsearch-plugin-interval-days'),
+				'type' => 'text',
+				);
+		$fields[] = array(
 				'label' => 'Search Type',
 				'tags' => 'NAME="qa-topsearch-plugin-param"',
 				'value' => qa_opt('qa-topsearch-plugin-param'),
 				'type' => 'select',
-				'options' => array('search', 'tagsearch'),
+				'options' => array('search'=> 'search','tagsearch'=> 'tagsearch'),
 				);
 		$fields[] = array(
 				'label' => 'Change to Recent Searches',

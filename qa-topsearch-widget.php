@@ -32,7 +32,7 @@ class qa_topsearch_widget {
 		$limit = 5 * qa_opt('qa-topsearch-plugin-count');
 		$query = "SELECT params, event  FROM ^eventlog  WHERE 
 			event like '".qa_opt('qa-topsearch-plugin-param')."' 
-			and datetime >= NOW() - INTERVAL 10 day
+			and datetime >= NOW() - INTERVAL ".qa_opt('qa-topsearch-plugin-interval-days')." day
 			ORDER BY datetime DESC
 			LIMIT ".$limit ;
 
