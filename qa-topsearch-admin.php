@@ -10,21 +10,17 @@ class qa_topsearch_admin {
 
 		switch($option) {
 			case 'topsearch_plugin_css':
-				return '.qa-top-search  {
-					background-color :cornsilk;
-				}
-
+				return '
+.topsearch-widget-container {
+    margin-bottom: 10px;}
+.qa-top-search {
+    margin: 5px;}
 				.qa-top-search-title {
-font: bold;
-				}
-
-				.qa-top-search-item {
-margin: 3px;
-	font-size: x-small;
-color: white;
-       padding-right: 2px;
-       padding-left: 2px;
-				}
+font: bold;		}
+	.qa-top-search-item {
+margin-right: 3px;
+	font-size: x-medium;
+       padding-right: 2px;				}
 
 				';
 			case 'qa-topsearch-plugin-title':
