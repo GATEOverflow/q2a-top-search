@@ -27,7 +27,7 @@ class qa_topsearch_widget {
 		require_once QA_INCLUDE_DIR.'db/selects.php';
 
 
-		$out='<div class="qa-top-search-title"><h2>'.qa_opt('qa-topsearch-plugin-title').'</h2></div>';
+		$out='<div class="qa-top-search-title">'.qa_opt('qa-topsearch-plugin-title').'</div>';
 		$out.='<div class="qa-top-search">';
 		$limit = 5 * qa_opt('qa-topsearch-plugin-count');
 		$query = "SELECT params, event  FROM ^eventlog  WHERE 

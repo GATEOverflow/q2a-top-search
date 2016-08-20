@@ -11,12 +11,17 @@ class qa_topsearch_admin {
 		switch($option) {
 			case 'topsearch_plugin_css':
 				return '
+qa-top-search-title {
+    font: bold;
+    font-size: large;
+    font-family: Arial;
+    font-weight: bold;
+    color: #337ab9;
+}
 .topsearch-widget-container {
     margin-bottom: 10px;}
 .qa-top-search {
     margin: 5px;}
-				.qa-top-search-title {
-font: bold;		}
 	.qa-top-search-item {
 margin-right: 3px;
 	font-size: x-medium;
