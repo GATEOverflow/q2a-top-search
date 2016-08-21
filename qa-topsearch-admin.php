@@ -54,6 +54,9 @@ margin-right: 3px;
 
 				qa_opt($i,$v);
 			}
+			if(!isset($_POST['qa-topsearch-plugin-recent']))
+                                qa_opt('qa-topsearch-plugin-recent', '0');
+
 
 			$ok = qa_lang('admin/options_saved');
 		}
